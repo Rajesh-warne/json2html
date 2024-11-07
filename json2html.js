@@ -1,22 +1,18 @@
-Write a JavaScript function json2html(data) that accepts a JavaScript array of objects like this:
+export default function json2html(data) {
+  // Generate the HTML table with the specified format
+  let html = '<table data-user="srikarrao2021@gmail.com">';
+  html += '<thead><tr><th>Name</th><th>Age</th><th>Gender</th></tr></thead>';
+  html += '<tbody>';
 
+  // Iterate over each object in the array and create table rows
+  data.forEach(row => {
+    html += '<tr>';
+    html += <td>${row.Name || ""}</td>;
+    html += <td>${row.Age || ""}</td>;
+    html += <td>${row.Gender || ""}</td>;
+    html += '</tr>';
+  });
 
-      [
-        { Name: "Alice", Age: 25 },
-        { Name: "Bob", Age: 30 },
-        { Name: "Charlie", Age: 35, Gender: "M" }
-      ]
-    
-... and returns a HTML table with 3 columns: Name, Age, and Gender, like this:
-
-
-      <table data-user="rajeshwarne1@gmail.com">
-        <thead>
-          <tr><th>Name</th><th>Age</th><th>Gender</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Alice</td><td>25</td></tr>
-          <tr><td>Bob</td><td>30</td></tr>
-          <tr><td>Charlie</td><td>35</td><td>M</td></tr>
-        </tbody>
-      </table>
+  html += '</tbody></table>';
+  return html;
+}
